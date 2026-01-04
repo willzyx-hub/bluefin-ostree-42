@@ -1,3 +1,4 @@
+# Legacy Code will be purged in next update
 #!/usr/bin/bash
 echo "::group:: ===$(basename "$0")==="
 set -oue pipefail

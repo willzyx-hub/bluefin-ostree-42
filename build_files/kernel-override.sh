@@ -1,3 +1,4 @@
+# Legacy Code will be purged in next update
 #!/bin/bash
 set -ouex pipefail
 

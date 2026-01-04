@@ -9,6 +9,8 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+# Make sure system is updated for selected branch 
+dnf5 update -y
 # Install Packages needed for Personal use
 dnf5 install -y tmux virt-manager sbsigntools gparted terminus-fonts terminus-fonts-console zsh
 
@@ -32,7 +34,7 @@ curl --retry 3 --retry-delay 2 --retry-all-errors -sL \
   https://dl.google.com/linux/linux_signing_key.pub
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-google
 
-# Install Google Chrome via dng
+# Install Google Chrome via dnf
 dnf5 install -y google-chrome-stable
 
 # Clean up the yum repo

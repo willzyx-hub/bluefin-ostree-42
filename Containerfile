@@ -2,8 +2,8 @@
 FROM scratch AS ctx
 COPY build_files /
 
-# Use Upstream Bazzite Base Images
-FROM ghcr.io/ublue-os/bazzite:latest 
+# Use Upstream Upstream Base Images
+FROM ghcr.io/ublue-os/bluefin:42
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
@@ -22,7 +22,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    /ctx/kernel-override.sh && /ctx/initramfs-override.sh && /ctx/user-config.sh && /ctx/install-devtools.sh && \
+    /ctx/user-config.sh && /ctx/install-devtools.sh && \
     ostree container commit
     
 ### LINTING
