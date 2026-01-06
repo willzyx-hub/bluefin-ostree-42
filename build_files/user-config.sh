@@ -12,7 +12,7 @@ set -ouex pipefail
 # Make sure system is updated for selected branch 
 dnf5 update -y
 # Install Packages needed for Personal use
-dnf5 install -y tmux virt-manager sbsigntools gparted terminus-fonts terminus-fonts-console zsh
+dnf5 install -y tmux virt-manager sbsigntools gparted terminus-fonts terminus-fonts-console zsh kernel-devel-$(uname -r)
 
 # Prepare Google Chrome Installation
 mkdir -p /var/opt
