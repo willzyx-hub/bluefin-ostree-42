@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # Make sure system is updated for selected branch 
-dnf5 update -y
+dnf5 update -y --exclude=kernel*
 # Install Packages needed for Personal use
 dnf5 install -y tmux virt-manager sbsigntools gparted terminus-fonts terminus-fonts-console zsh kernel-devel firefox
 
