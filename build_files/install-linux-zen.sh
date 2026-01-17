@@ -8,6 +8,9 @@ dnf5 versionlock clear || true
 # Override current kernel
 dnf5 remove kernel kernel-core kernel-modules kernel-modules-extra || true
 
+# Remove kernel leftover
+rm -rf /usr/lib/modules/*
+
 # Add kernel installation notice
 echo "Installing Linux Zen kernel..."
 
