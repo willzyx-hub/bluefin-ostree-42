@@ -23,5 +23,9 @@ dnf5 install /tmp/kernel-headers-6.18.5_zen-13.x86_64.rpm -y
 # End kernel installation
 echo "Kernel Override complete"
 
+# Fix /var/run invariant (bootc requirement)
+rm -rf /var/run
+ln -s ../run /var/run
+
 # Restore kernel version lock
 #dnf5 versionlock add kernel-core-${KERNEL_VERSION} kernel-modules-${KERNEL_VERSION} kernel-modules-extra-${KERNEL_VERSION}
