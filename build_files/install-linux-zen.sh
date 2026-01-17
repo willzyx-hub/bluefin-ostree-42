@@ -15,10 +15,10 @@ rm -rf /usr/lib/modules/*
 echo "Installing Linux Zen kernel..."
 
 # Install specific kernel update version
-curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-6.18.5_zen-13.x86_64.rpm -o /tmp/kernel-6.18.5_zen-13.x86_64.rpm
-curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-headers-6.18.5_zen-13.x86_64.rpm -o /tmp/kernel-headers-6.18.5_zen-13.x86_64.rpm
-dnf5 install /tmp/kernel-6.18.5_zen-13.x86_64.rpm -y
-dnf5 install /tmp/kernel-headers-6.18.5_zen-13.x86_64.rpm -y
+curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-6.18.5_zen+-15.x86_64.rpm -o /tmp/kernel.rpm
+curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-headers-6.18.5_zen+-15.x86_64.rpm -o /tmp/kernel-headers.rpm
+dnf5 install /tmp/kernel.rpm -y
+dnf5 install /tmp/kernel-headers.rpm -y
 
 # End kernel installation
 echo "Kernel Override complete"
