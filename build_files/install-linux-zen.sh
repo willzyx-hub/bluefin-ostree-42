@@ -15,8 +15,10 @@ rm -rf /usr/lib/modules/*
 echo "Installing Linux Zen kernel..."
 
 # Install specific kernel update version
-curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-6.18.5_zen+-15.x86_64.rpm -o /tmp/kernel.rpm
-curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-headers-6.18.5_zen+-15.x86_64.rpm -o /tmp/kernel-headers.rpm
+curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-6.18.5_zen+-26.x86_64.rpm -o /tmp/kernel.rpm
+curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-headers-6.18.5_zen+-26.x86_64.rpm -o /tmp/kernel-headers.rpm
+curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-devel-6.18.5_zen+-26.x86_64.rpm -o /tmp/kernel-devel.rpm
+
 dnf5 install /tmp/kernel.rpm -y
 dnf5 install /tmp/kernel-headers.rpm -y
 
@@ -30,7 +32,7 @@ echo "Fix Bootc requirement completed"
 
 # Fix initramfs not being created
 # Specify kernel version
-KERNEL_VERSION="6.18.5-zen+" # Set variables
+KERNEL_VERSION="6.18.5_zen+" # Set variables
 
 # Generate the initramfs for this kernel
 /usr/bin/dracut --no-hostonly --kver "$KERNEL_VERSION" --reproducible -v --add ostree -f "/lib/modules/$KERNEL_VERSION/initramfs.img"
