@@ -2,7 +2,7 @@
 
 set -ouex pipefail
 
-dnf5 copr enable tukandev/TwintailLauncher
+dnf5 copr enable tukandev/TwintailLauncher -y
 echo "Twintail updated successfully"
-dnf5 install twintaillauncher
+dnf5 install -y twintaillauncher
 echo "Successfully installed Latest Twintail Launcher"
