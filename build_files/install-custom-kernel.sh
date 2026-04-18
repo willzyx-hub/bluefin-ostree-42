@@ -1,4 +1,3 @@
-# Legacy Code will be purged in next update
 #!/bin/bash
 set -ouex pipefail
 
@@ -12,15 +11,12 @@ dnf5 remove kernel kernel-core kernel-modules kernel-modules-extra || true
 rm -rf /usr/lib/modules/*
 
 # Add kernel installation notice
-echo "Installing Linux Zen kernel..."
+echo "Installing Custom Kernel..."
 
 # Install specific kernel update version
-curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-6.18.5_zen+-26.x86_64.rpm -o /tmp/kernel.rpm
-curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-headers-6.18.5_zen+-26.x86_64.rpm -o /tmp/kernel-headers.rpm
-curl -L https://github.com/willzyx-hub/linux-zen-fedora42/releases/download/January/kernel-devel-6.18.5_zen+-26.x86_64.rpm -o /tmp/kernel-devel.rpm
-
-dnf5 install /tmp/kernel.rpm -y
-dnf5 install /tmp/kernel-headers.rpm -y
+dnf5 install /ctx/kernel-6.12.74_android16_6_g90581039f6a0-17.x86_64.rpm -y
+dnf5 install /ctx/kernel-devel-6.12.74_android16_6_g90581039f6a0-17.x86_64 -y
+dnf5 install /ctx/kernel-headers-6.12.74_android16_6_g90581039f6a0-17.x86_64.rpm -y
 
 # End kernel installation
 echo "Kernel Override complete"
@@ -32,7 +28,7 @@ echo "Fix Bootc requirement completed"
 
 # Fix initramfs not being created
 # Specify kernel version
-KERNEL_VERSION="6.18.5-zen+" # Set variables
+KERNEL_VERSION="6.12.74-android16-6-g90581039f6a0" # Set variables
 
 # Generate the initramfs for this kernel
 /usr/bin/dracut --no-hostonly --kver "$KERNEL_VERSION" --reproducible -v --add ostree -f "/lib/modules/$KERNEL_VERSION/initramfs.img"
