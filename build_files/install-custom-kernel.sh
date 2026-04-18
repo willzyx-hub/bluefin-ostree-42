@@ -15,7 +15,7 @@ echo "Installing Custom Kernel..."
 
 # Install specific kernel update version
 dnf5 install /ctx/assets/kernel-6.12.74_android16_6_g90581039f6a0-17.x86_64.rpm -y
-dnf5 install /ctx/assets/kernel-devel-6.12.74_android16_6_g90581039f6a0-17.x86_64 -y
+dnf5 install /ctx/assets/kernel-devel-6.12.74_android16_6_g90581039f6a0-17.x86_64.rpm -y
 dnf5 install /ctx/assets/kernel-headers-6.12.74_android16_6_g90581039f6a0-17.x86_64.rpm -y
 
 # End kernel installation
