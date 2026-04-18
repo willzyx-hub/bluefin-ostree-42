@@ -5,7 +5,7 @@ set -ouex pipefail
 dnf5 versionlock clear || true
 
 # Override current kernel
-dnf5 remove kernel kernel-core kernel-modules kernel-modules-extra || true
+dnf5 remove kernel kernel-core kernel-modules kernel-modules-extra -y || true
 
 # Remove kernel leftover
 rm -rf /usr/lib/modules/*
@@ -14,9 +14,9 @@ rm -rf /usr/lib/modules/*
 echo "Installing Custom Kernel..."
 
 # Install specific kernel update version
-dnf5 install /ctx/kernel-6.12.74_android16_6_g90581039f6a0-17.x86_64.rpm -y
-dnf5 install /ctx/kernel-devel-6.12.74_android16_6_g90581039f6a0-17.x86_64 -y
-dnf5 install /ctx/kernel-headers-6.12.74_android16_6_g90581039f6a0-17.x86_64.rpm -y
+dnf5 install /ctx/assets/kernel-6.12.74_android16_6_g90581039f6a0-17.x86_64.rpm -y
+dnf5 install /ctx/assets/kernel-devel-6.12.74_android16_6_g90581039f6a0-17.x86_64 -y
+dnf5 install /ctx/assets/kernel-headers-6.12.74_android16_6_g90581039f6a0-17.x86_64.rpm -y
 
 # End kernel installation
 echo "Kernel Override complete"
