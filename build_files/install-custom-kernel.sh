@@ -13,10 +13,15 @@ rm -rf /usr/lib/modules/*
 # Add kernel installation notice
 echo "Installing Custom Kernel..."
 
-# Install specific kernel update version
-dnf5 install /ctx/assets/kernel-6.12.69_android_16_6_00001_8db2a064d954_ab15872857+-5.x86_64.rpm -y
-dnf5 install /ctx/assets/kernel-devel-6.12.69_android_16_6_00001_8db2a064d954_ab15872857+-5.x86_64.rpm -y
-dnf5 install /ctx/assets/kernel-headers-6.12.69_android_16_6_00001_8db2a064d954_ab15872857+-5.x86_64.rpm -y
+# Download kernel release
+curl -L https://github.com/willzyx-hub/bluefin-ostree-42/releases/download/kernel/kernel-6.12.69_android_16_6_00001_8db2a064d954_ab15872857+-5.x86_64.rpm -o /tmp/kernel.rpm
+curl -L https://github.com/willzyx-hub/bluefin-ostree-42/releases/download/kernel/kernel-devel-6.12.69_android_16_6_00001_8db2a064d954_ab15872857+-5.x86_64.rpm -o /tmp/kernel-devel.rpm
+curl -L https://github.com/willzyx-hub/bluefin-ostree-42/releases/download/kernel/kernel-headers-6.12.69_android_16_6_00001_8db2a064d954_ab15872857+-5.x86_64.rpm -o /tmp/kernel-header.rpm
+
+# Install kernel
+dnf5 install /tmp/kernel.rpm -y
+dnf5 install /tmp/kernel-devel.rpm -y
+dnf5 install /tmp/kernel-header.rpm
 
 # End kernel installation
 echo "Kernel Override complete"
