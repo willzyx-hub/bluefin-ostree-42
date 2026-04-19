@@ -14,9 +14,9 @@ rm -rf /usr/lib/modules/*
 echo "Installing Custom Kernel..."
 
 # Download kernel release
-curl -L https://github.com/willzyx-hub/bluefin-ostree-42/releases/download/kernel/kernel-6.12.69_android16_6_00001_8db2a064d954_ab15872857+-7.x86_64.rpm -o /tmp/kernel.rpm
-curl -L https://github.com/willzyx-hub/bluefin-ostree-42/releases/download/kernel/kernel-devel-6.12.69_android16_6_00001_8db2a064d954_ab15872857+-7.x86_64.rpm -o /tmp/kernel-devel.rpm
-curl -L https://github.com/willzyx-hub/bluefin-ostree-42/releases/download/kernel/kernel-headers-6.12.69_android16_6_00001_8db2a064d954_ab15872857+-7.x86_64.rpm -o /tmp/kernel-header.rpm
+curl -L https://github.com/willzyx-hub/bluefin-ostree-42/releases/download/kernel/kernel-6.12.69_android16_6_00001_8db2a064d954_ab15872857+-10.x86_64.rpm -o /tmp/kernel.rpm
+curl -L https://github.com/willzyx-hub/bluefin-ostree-42/releases/download/kernel/kernel-devel-6.12.69_android16_6_00001_8db2a064d954_ab15872857+-10.x86_64.rpm -o /tmp/kernel-devel.rpm
+curl -L https://github.com/willzyx-hub/bluefin-ostree-42/releases/download/kernel/kernel-headers-6.12.69_android16_6_00001_8db2a064d954_ab15872857+-10.x86_64.rpm -o /tmp/kernel-header.rpm
 
 # Install kernel
 dnf5 install /tmp/kernel.rpm -y
