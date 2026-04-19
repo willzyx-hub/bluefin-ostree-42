@@ -21,7 +21,7 @@ curl -L https://github.com/willzyx-hub/bluefin-ostree-42/releases/download/kerne
 # Install kernel
 dnf5 install /tmp/kernel.rpm -y
 dnf5 install /tmp/kernel-devel.rpm -y
-dnf5 install /tmp/kernel-header.rpm
+dnf5 install /tmp/kernel-header.rpm -y
 
 # End kernel installation
 echo "Kernel Override complete"
